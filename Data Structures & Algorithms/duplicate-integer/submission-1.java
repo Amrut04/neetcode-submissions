@@ -1,14 +1,12 @@
 class Solution {
     public boolean hasDuplicate(int[] nums) {
-        boolean has = false;
-        int n = nums.length;
+        Arrays.sort(nums);
 
-        for(int i=0;i<n;i++){
-            for(int j=i+1;j<n;j++){
-                if(nums[i]==nums[j]){
-                    return true;
-                }
+        for(int i=1;i<nums.length;i++){
+            if(nums[i] == nums[i-1]){
+                return true;
             }
         }
+        return false;
     }
 }
